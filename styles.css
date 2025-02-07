@@ -1,0 +1,31 @@
+#container-wrapper {
+    margin-top: 20px;
+    position: relative; 
+}
+
+.container:active {
+    cursor: grabbing;
+}
+
+.node {
+    display: flex; /* 가로 정렬 */
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    gap: 15px; /* 라디오 버튼 간격 */
+    padding: 10px;
+    border: 2px solid #007BFF; /* 컨테이너 테두리 */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: fit-content;
+}
+
+.node-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.node input[type="radio"] {
+    cursor: pointer;
+}
+
