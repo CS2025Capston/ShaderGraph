@@ -18,10 +18,10 @@ async function main() {
     const importButton = document.getElementById("import-button");
     importObj(importButton);
 
-    const button = document.getElementById("create-container");
+    
     const containerWrapper = document.getElementById("container-wrapper");
     
-    createGraph(button, containerWrapper);
+    createGraph(leftCanvas, containerWrapper);
 }
 
 document.addEventListener("DOMContentLoaded", main);

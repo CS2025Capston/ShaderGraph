@@ -94,23 +94,27 @@ canvas {
 }
 
 .container-button {
+    display: none;
     position: relative;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 0px;
     width: 150px;
-    height: 60px;
-    top: 60px;
-    left: 10px;
+    height: 40px;
+    top: 0px;
+    left: 0px;
+    border: 2px solid rgb(117, 117, 117);
+    background-color: #f9f9f9;
 }
 
 .node {
     display: flex;
+    position: absolute;
     flex-direction: column;
     align-items: center;
     gap: 15px;
     padding: 10px;
     border: 2px solid #007BFF;
-    border-radius: 8px;
+    border-radius: 1px;
     background-color: #f9f9f9;
     width: fit-content;
     white-space: nowrap;
