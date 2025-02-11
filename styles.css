@@ -1,3 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.toolbar {
+    display: flex;
+    position: relative;
+    /* justify-content: center;
+    align-items: center; */
+    background: #33333300;
+    color: white;
+    height: 30px;
+    /* padding: 10px; */
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-button {
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 60px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 150px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.dropdown button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: white;
+    color: black;
+    text-align: left;
+    cursor: pointer;
+}
+
+.canvas-wrapper {
+    display: flex;
+    flex: 1;
+    position: relative;
+    background-color: black;
+    height: calc(100vh - 30px);
+    padding: 3px;
+}
+
+.canvas-container {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    /* padding: 1px; */
+    background-color: white;
+    /* box-sizing: border-box; */
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.divider {
+    width: 3px;
+    background: #000000;
+    cursor: ew-resize;
+    position: relative;
+}
+
 #container-wrapper {
     margin-top: 20px;
     position: relative; 
@@ -7,16 +93,27 @@
     cursor: grabbing;
 }
 
+.container-button {
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 150px;
+    height: 60px;
+    top: 60px;
+    left: 10px;
+}
+
 .node {
-    display: flex; /* 가로 정렬 */
-    flex-direction: column; /* 세로 정렬 */
-    align-items: center; /* 세로 중앙 정렬 */
-    gap: 15px; /* 라디오 버튼 간격 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
     padding: 10px;
-    border: 2px solid #007BFF; /* 컨테이너 테두리 */
+    border: 2px solid #007BFF;
     border-radius: 8px;
     background-color: #f9f9f9;
     width: fit-content;
+    white-space: nowrap;
 }
 
 .node-item {
@@ -28,4 +125,3 @@
 .node input[type="radio"] {
     cursor: pointer;
 }
-

@@ -4,14 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shader Graph</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="main/styles.css">
 </head>
-<body bgcolor="#151515">
-    <button id="create-container">컨테이너 생성</button>
-    <div id="container-wrapper"></div>
+<body>
+    <div class="toolbar">
+        <div class="menu-item">
+            <button class="menu-button">File</button>
+            <div class="dropdown">
+                <button id="import-button">Import</button>
+            </div>
+        </div>
 
+        <div class="menu-item">
+            <button class="menu-button">Option</button>
+            <div class="dropdown">
+                <button onclick="alert('not implement')">Preferrence</button>
+            </div>
+        </div>
+    </div>
 
+    <!-- 캔버스 컨테이너 -->
+    <div class="canvas-wrapper">
+        <div class="canvas-container" id="left-container" width="300px">
+            <div id="container-wrapper"></div>
+            <button class="container-button" id="create-container">컨테이너 생성</button>
+        
+            <!-- <canvas id="left-canvas"></canvas> -->
+        </div>
+    
+        <!-- 가운데 경계선 -->
+        <div class="divider" id="divider"></div>
+    
+        <!-- 오른쪽 캔버스 컨테이너 -->
+        <div class="canvas-container" id="right-container">
+            <canvas id="right-canvas"></canvas>
+        </div>
+    </div>
 
-    <script src="code.js" defer></script>
+    <script type="module" src="main/code.js"></script>
 </body>
 </html>
