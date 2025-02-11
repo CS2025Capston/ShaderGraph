@@ -80,7 +80,7 @@ export async function initializeWebGPU(canvas) {
                 0,  -1,   0,  // middle rung bottom
                 1,   0,   0,  // stem right
                 0,  -1,   0,  // bottom
-            -1,   0,   0,  // left
+                -1,   0,   0,  // left
         ];
 
         const numVertices = indices.length;

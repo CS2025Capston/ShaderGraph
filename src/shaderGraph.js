@@ -1,17 +1,28 @@
-export function createGraph(button, containerWrapper)
+/*
+왼쪽 캔버스용 JS
+
+createGraph(leftCanvas, containerWrapper) : 캔버스 클릭 이벤트 지정
+*/
+
+export function createGraph(leftCanvas, containerWrapper)
 {
-    if (!button || !containerWrapper) {
-        console.error("필수 요소가 존재하지 않습니다.");
-        return;
-    }
-    
-    button.addEventListener("click", function () {
+
+        const button = document.getElementById("create-node");
+        leftCanvas.addEventListener("contextmenu", function(event){ // 왼쪽 캔버스 (그래프영역) 우클릭시
+        event.preventDefault();  // 기존 우클릭메뉴 안보이게
+        showCanvasDropdown(event, button); // 우클릭시 드롭다운 메뉴를 보여줌
+        });
+
+        button.addEventListener("click", function () {
+        button.style.display = "none";
+            
+            
         // 라디오 버튼 컨테이너 생성
         const node = document.createElement("div");
         node.classList.add("node");
     
         // 라디오 버튼 목록 생성
-        const options = ["옵션 1", "옵션 2", "옵션 3"];
+        const options = ["X :", "Y :", "Z :"];
         options.forEach((option, index) => {
             const nodeItem = document.createElement("div");
             nodeItem.classList.add("radio-item");
@@ -28,37 +39,40 @@ export function createGraph(button, containerWrapper)
             nodeItem.appendChild(radioInput);
             nodeItem.appendChild(radioLabel);
             node.appendChild(nodeItem);
+
+            makeDraggable(node);
+            
         });
-    
-        // 드래그 기능 추가
-        makeDraggable(node);
-    
-        // 컨테이너 추가
         containerWrapper.appendChild(node);
     });
-    
-    function makeDraggable(element) {
-        let isDragging = false;
-        let offsetX = 0, offsetY = 0;
-    
-        element.style.position = "absolute"; // 드래그 가능하도록 설정
-    
-        element.addEventListener("mousedown", function (event) {
-            isDragging = true;
-            offsetX = event.clientX - element.getBoundingClientRect().left;
-            offsetY = event.clientY - element.getBoundingClientRect().top;
-            element.style.zIndex = 1000; // 드래그 시 가장 위로
-        });
-    
-        document.addEventListener("mousemove", function (event) {
-            if (!isDragging) return;
-            element.style.left = event.clientX - offsetX + "px";
-            element.style.top = event.clientY - offsetY + "px";
-        });
-    
-        document.addEventListener("mouseup", function () {
-            isDragging = false;
-            element.style.zIndex = "auto"; // 드래그 종료 후 원래대로
-        });
-    }
+}
+
+
+function showCanvasDropdown(event, button) {
+    button.style.display = "block";
+    button.style.top = event.clientY + "px";
+    button.style.left = event.clientX + "px";
+}
+
+function makeDraggable(element) {
+    let isDragging = false;
+    let offsetX = 0, offsetY = 0;
+
+    element.addEventListener("mousedown", function (event) {
+        isDragging = true;
+        offsetX = event.clientX - element.getBoundingClientRect().left;
+        offsetY = event.clientY - element.getBoundingClientRect().top;
+        element.style.zIndex = 1000; // 드래그 시 가장 위로
+    });
+
+    document.addEventListener("mousemove", function (event) {
+        if (!isDragging) return;
+        element.style.left = event.clientX - offsetX + "px";
+        element.style.top = event.clientY - offsetY + "px";
+    });
+
+    document.addEventListener("mouseup", function () {
+        isDragging = false;
+        element.style.zIndex = "auto"; // 드래그 종료 후 원래대로
+    });
 }
